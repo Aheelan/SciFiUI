@@ -7,6 +7,7 @@ public class UI extends PApplet
     Button b;
     MovingCircle mc;
     radar r;
+    ShipDesign ship;
 
     boolean[] keys = new boolean[1024];
 
@@ -38,12 +39,15 @@ public class UI extends PApplet
         b = new Button(this, 50, 50, 100, 50, "I am a button");
         mc = new MovingCircle(this, width / 2, height / 2, 50);
         r = new radar(this, width / 2, height / 2, 120);
+        ship= new ShipDesign(this);
     }
 
     public void draw()
     {
         background(0);
-        b.render();
+        
+		ship.design1();
+       /* b.render();
 
         mc.update();
         mc.render();
@@ -54,7 +58,7 @@ public class UI extends PApplet
         if (checkKey(LEFT))
         {
             System.out.println("Left arrow key pressed");
-        }
+        }*/
     }
 }
 
