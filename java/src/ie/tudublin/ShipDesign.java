@@ -8,6 +8,13 @@ import processing.core.PVector;
 public class ShipDesign extends PApplet
 {
     UI ui;
+    public float swidth;
+    public float sheight;
+    public float cwidth;
+    public float cheight;
+    public float bwidth;
+    public float bheight;
+
 
     public ShipDesign(UI ui)
     {

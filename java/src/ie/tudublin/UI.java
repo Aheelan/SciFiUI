@@ -11,8 +11,11 @@ public class UI extends PApplet
     Button b4;
     MovingCircle mc;
     radar r;
+
     ShipDesign ship;
     Hud hud;
+    Textbox tbox;
+    Cargo cargo;
 
     boolean[] keys = new boolean[1024];
 
@@ -50,6 +53,8 @@ public class UI extends PApplet
         r = new radar(this, width / 2, height / 2, 120);
         ship= new ShipDesign(this);
         hud = new Hud(this, width, height);
+        tbox = new Textbox(this);
+        cargo = new Cargo(this);
     }
 
     public void draw()
@@ -63,6 +68,9 @@ public class UI extends PApplet
         b3.render();
         b4.render();
         hud.render();
+
+        tbox.render();
+        cargo.cargo1();
 
         /*mc.update();
         mc.render();
