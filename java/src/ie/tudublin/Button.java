@@ -23,7 +23,7 @@ public class Button
 
     public void render()
     {
-        ui.noFill();
+        ui.fill(100,20,20);
         ui.stroke(255);
         ui.rect(x, y, width, height);
         ui.textAlign(PApplet.CENTER, PApplet.CENTER);

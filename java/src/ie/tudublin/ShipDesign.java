@@ -2,8 +2,7 @@ package ie.tudublin;
 
 import java.util.ArrayList;
 
-import processing.core.PApplet;
-import processing.core.PVector;
+import processing.core.*;
 
 public class ShipDesign extends PApplet
 {
@@ -14,11 +13,45 @@ public class ShipDesign extends PApplet
     public float cheight;
     public float bwidth;
     public float bheight;
-
+    private PShape baseShip, nose, body, rear;
 
     public ShipDesign(UI ui)
     {
        this. ui= ui;
+    }
+
+    public void design()
+    {
+       /* baseShip = createShape(GROUP);
+
+        nose = createShape(ELLIPSE, -25, 0, 50, 50);
+        
+        body = createShape(RECT, -25, 45, 50, 40);
+
+        /*ui.stroke(255, 255, 255);
+        ui.fill(255, 255, 255);
+        //ui.ellipse(350, 350, 150, 50); 
+
+        ui.bezier(350, 250, 200, 250, 200, 450, 350, 450);*/
+
+        /*rear = createShape();
+        rear.beginShape();
+        rear.vertex(30, 20);
+        rear.bezierVertex(80, 0, 80, 75, 30, 75);
+        rear.endShape();
+
+        nose.setFill(color(200));
+        nose.setStroke(color(200));
+        body.setFill(color(200));
+        body.setStroke(color(200));
+        rear.setFill(color(200));
+        rear.setStroke(color(200));
+
+        baseShip.addChild(nose);
+        baseShip.addChild(body);
+        baseShip.addChild(nose);
+
+        ui.shape(baseShip);*/
     }
 
     public void design1()
@@ -54,8 +87,9 @@ public class ShipDesign extends PApplet
         ui.bezier(450, 250, 500, 250, 565, 300, 563, 350);
     }
 
-    public void render()
+    /*public void render()
     {
-       
-    }
+        ui.translate(50, 15);
+        ui.shape(baseShip);
+    }*/
 }

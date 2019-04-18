@@ -44,7 +44,7 @@ public class UI extends PApplet
 
     public void setup()
     {
-        b = new Button(this, 0, 50, width/4, 50, "I am a button");
+        b = new Button(this, 0, 50, width/4, 50, "Scan first Layer");
         b1 = new Button(this, 0, 150, width/4, 50, "I am a button");
         b2 = new Button(this, 0, 250, width/4, 50, "I am a button");
         b3 = new Button(this, 0, 350, width/4, 50, "I am a button");
@@ -53,7 +53,7 @@ public class UI extends PApplet
         r = new radar(this, width / 2, height / 2, 120);
         ship= new ShipDesign(this);
         hud = new Hud(this, width, height);
-        tbox = new Textbox(this);
+        tbox = new Textbox(this, width/4, 50);
         cargo = new Cargo(this);
     }
 
@@ -61,16 +61,17 @@ public class UI extends PApplet
     {
         background(0);
         
-		ship.design1();
+        //cargo.cargo1();
+        ship.design1();
+        
+        hud.render();
         b.render();
         b1.render();
         b2.render();
         b3.render();
         b4.render();
-        hud.render();
-
+        
         tbox.render();
-        cargo.cargo1();
 
         /*mc.update();
         mc.render();
