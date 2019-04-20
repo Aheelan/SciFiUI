@@ -1,6 +1,7 @@
 package ie.tudublin;
 
-import processing.core.PApplet;
+import java.util.ArrayList;
+import processing.core.*;
 
 public class UI extends PApplet
 {
@@ -11,10 +12,11 @@ public class UI extends PApplet
     Button b4;
     MovingCircle mc;
     radar r;
-
-    ShipDesign ship;
     Hud hud;
     Textbox tbox;
+
+    ShipDesign ship;
+    ship move;
     Cargo cargo;
 
     boolean[] keys = new boolean[1024];
@@ -55,15 +57,26 @@ public class UI extends PApplet
         hud = new Hud(this, width, height);
         tbox = new Textbox(this, width/4, 50);
         cargo = new Cargo(this);
+        move =new ship(this);
     }
 
     public void draw()
     {
         background(0);
         
+        pushMatrix();
+        //translate(20,20);
+
         //cargo.cargo1();
-        ship.design1();
         
+        /*for(int i=0; i<10; i++)
+        {
+            move.movement();
+           
+        }*/
+        ship.design1();
+        popMatrix();
+
         hud.render();
         b.render();
         b1.render();
@@ -73,6 +86,7 @@ public class UI extends PApplet
         
         tbox.render();
 
+      
         /*mc.update();
         mc.render();
 

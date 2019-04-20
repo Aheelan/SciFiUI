@@ -92,4 +92,9 @@ public class ShipDesign extends PApplet
         ui.translate(50, 15);
         ui.shape(baseShip);
     }*/
+
+    public void movement()
+    {
+           
+    }
 }

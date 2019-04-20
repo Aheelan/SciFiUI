@@ -2,21 +2,22 @@ package ie.tudublin;
 
 import java.util.ArrayList;
 
-import processing.core.PApplet;
-import processing.core.PVector;
+import processing.core.*;
 
-public class ship
+public class ship extends PApplet
 {
-    float size;
+    UI ui;
+    private float shipx;
+   
 
-    public ship()
+    public ship(UI ui)
     {
-        
+       this. ui= ui;
     }
 
-    public class movement
+    public void movement()
     {
-
+           
     }
 
 
