@@ -13,7 +13,7 @@ public class ShipDesign extends PApplet
     public float cheight;
     public float bwidth;
     public float bheight;
-    private PShape baseShip, nose, body, rear;
+    public PShape baseShip, nose, body, rear;
 
     public ShipDesign(UI ui)
     {
@@ -22,36 +22,29 @@ public class ShipDesign extends PApplet
 
     public void design()
     {
-       /* baseShip = createShape(GROUP);
+        baseShip = ui.createShape(GROUP);
+        ui.fill(255);
+        ui.noStroke();
 
-        nose = createShape(ELLIPSE, -25, 0, 50, 50);
+        rear = ui.createShape();
+        ui.beginShape();
+        ui. vertex(350, 250);
+        ui.bezierVertex(200, 250, 200, 450, 350, 450);
+        ui.endShape();
         
-        body = createShape(RECT, -25, 45, 50, 40);
-
-        /*ui.stroke(255, 255, 255);
-        ui.fill(255, 255, 255);
-        //ui.ellipse(350, 350, 150, 50); 
-
-        ui.bezier(350, 250, 200, 250, 200, 450, 350, 450);*/
-
-        /*rear = createShape();
-        rear.beginShape();
-        rear.vertex(30, 20);
-        rear.bezierVertex(80, 0, 80, 75, 30, 75);
-        rear.endShape();
-
-        nose.setFill(color(200));
-        nose.setStroke(color(200));
-        body.setFill(color(200));
-        body.setStroke(color(200));
-        rear.setFill(color(200));
-        rear.setStroke(color(200));
+        nose = ui.createShape();
+        ui.beginShape();
+        ui.vertex(450, 250);
+        ui.bezierVertex(600, 280, 600, 420, 450, 450);
+        ui.endShape();
+        
+        body = ui.createShape(RECT,350,250,100,200);
 
         baseShip.addChild(nose);
         baseShip.addChild(body);
-        baseShip.addChild(nose);
+        baseShip.addChild(rear);
 
-        ui.shape(baseShip);*/
+        ui.shape(baseShip);
     }
 
     public void design1()

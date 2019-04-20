@@ -14,7 +14,7 @@ public class test extends PApplet
         //fullScreen(); 
     }
 
-    public void setup()
+    /*public void setup()
     {
         ship= new ShipDesign(this);
     }
@@ -22,5 +22,5 @@ public class test extends PApplet
     public void draw()
     {
         background (255);
-        ship.design();
+        ship.design();*/
 }

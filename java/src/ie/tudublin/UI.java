@@ -64,7 +64,10 @@ public class UI extends PApplet
     {
         background(0);
         
-        pushMatrix();
+        ship.design();
+       
+        //ship.shape(ship.baseShip);
+       /* pushMatrix();
         //translate(20,20);
 
         //cargo.cargo1();
@@ -73,7 +76,7 @@ public class UI extends PApplet
         {
             move.movement();
            
-        }*/
+        }
         ship.design1();
         popMatrix();
 
@@ -86,8 +89,7 @@ public class UI extends PApplet
         
         tbox.render();
 
-      
-        /*mc.update();
+       /* mc.update();
         mc.render();
 
         r.update();
