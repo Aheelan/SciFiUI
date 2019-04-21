@@ -14,13 +14,14 @@ public class ShipDesign extends PApplet
     public float bwidth;
     public float bheight;
     public PShape baseShip, nose, body, rear;
+    public PShape layer1, subLayer1, wing1, wing2, thruster, window1, window2;
 
     public ShipDesign(UI ui)
     {
        this. ui= ui;
     }
 
-    public void design()
+    public void bDesign1()
     {
         baseShip = ui.createShape(GROUP);
         ui.fill(255);
@@ -44,7 +45,58 @@ public class ShipDesign extends PApplet
         baseShip.addChild(body);
         baseShip.addChild(rear);
 
+        //ui.shape(subLayer1);
         ui.shape(baseShip);
+    }
+
+    public void l1design1()
+    {
+        layer1 = ui.createShape(GROUP);
+        subLayer1 = ui.createShape(GROUP);
+
+        ui.fill(200,110,120);
+        ui.stroke(200,110,120);
+
+        wing1 = ui.createShape();
+        ui.beginShape(TRIANGLE_STRIP);
+        ui.vertex(310, 270,200);
+        ui.vertex(450, 250,200);
+        ui.vertex(310, 170,200);
+        ui.endShape();
+        
+        wing2 = ui.createShape();
+        ui.beginShape(TRIANGLE_STRIP);
+        ui.vertex(310, 430);
+        ui.vertex(450, 450);
+        ui.vertex(310, 530);
+        ui.endShape();
+       
+        window1 = ui.createShape();
+        ui.beginShape(TRIANGLE_STRIP);
+        ui.vertex(450, 250);
+        ui.vertex(450, 350);
+        ui.vertex(563, 350);
+        ui.endShape();
+
+        window2 = ui.createShape();
+        ui.beginShape();
+        ui.vertex(450, 250);
+        ui.bezierVertex(500, 250, 565, 300, 563, 350);
+        ui.endShape();
+
+        thruster = ui.createShape();
+        ui.beginShape();
+        ui.vertex(300, 320);
+        ui.bezierVertex(400, 320, 400, 380, 300, 380);
+        ui.endShape();
+
+        subLayer1.addChild(wing1);
+        subLayer1.addChild(wing2);
+        layer1.addChild(window1);
+        layer1.addChild(window2);
+        layer1.addChild(thruster);
+
+        ui.shape(layer1);
     }
 
     public void design1()

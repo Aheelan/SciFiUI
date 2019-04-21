@@ -55,7 +55,7 @@ public class UI extends PApplet
         r = new radar(this, width / 2, height / 2, 120);
         ship= new ShipDesign(this);
         hud = new Hud(this, width, height);
-        tbox = new Textbox(this, width/4, 50);
+        tbox = new Textbox(this, width/4, 50, "Help");
         cargo = new Cargo(this);
         move =new ship(this);
     }
@@ -64,10 +64,9 @@ public class UI extends PApplet
     {
         background(0);
         
-        ship.design();
+        //ship.design();
        
-        //ship.shape(ship.baseShip);
-       /* pushMatrix();
+        pushMatrix();
         //translate(20,20);
 
         //cargo.cargo1();
@@ -76,8 +75,9 @@ public class UI extends PApplet
         {
             move.movement();
            
-        }
-        ship.design1();
+        }*/
+        ship.bDesign1();
+        ship.l1design1();
         popMatrix();
 
         hud.render();

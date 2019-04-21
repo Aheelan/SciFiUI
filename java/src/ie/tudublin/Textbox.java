@@ -10,17 +10,22 @@ public class Textbox extends PApplet
     UI ui;
     private float x;
     private float y;
+    private String text;
 
-    public Textbox(UI ui, float x, float y)
+    public Textbox(UI ui, float x, float y, String text)
     {
        this.ui= ui;
        this.x= x;
        this.y= y;
+       this.text = text;
     }
 
     public void render()
     {
-        ui.fill(240,230,250);
-        ui.rect(x,y,50,30);
+        ui.fill(100,180,100,150);
+        ui.rect(x,y,x,y);
+        ui.fill(250,110,180);
+        ui.textAlign(PApplet.CENTER, PApplet.CENTER);
+        ui.text(text, x + x/2, y+y/2);
     }
 }

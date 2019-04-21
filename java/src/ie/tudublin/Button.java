@@ -26,6 +26,7 @@ public class Button
         ui.fill(100,20,20);
         ui.stroke(255);
         ui.rect(x, y, width, height);
+        ui.fill(100,120,250);
         ui.textAlign(PApplet.CENTER, PApplet.CENTER);
         ui.text(text, x + width * 0.5f, y + height * 0.5f);
     }
