@@ -21,6 +21,11 @@ public class Button
         this.text = text;
     }
 
+    public float getVar()
+    {
+        return width;
+    }
+
     public void render()
     {
         ui.fill(100,20,20);

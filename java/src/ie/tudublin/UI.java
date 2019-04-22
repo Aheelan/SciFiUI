@@ -1,24 +1,21 @@
 package ie.tudublin;
 
-import java.util.ArrayList;
+import java.util.*;
 import processing.core.*;
 
 public class UI extends PApplet
 {
-    Button b;
-    Button b1;
-    Button b2;
-    Button b3;
-    Button b4;
     MovingCircle mc;
     radar r;
     Hud hud;
-    Textbox tbox;
 
     ShipDesign ship;
     ship move;
     Cargo cargo;
 
+    ArrayList<Button> buttons =new ArrayList<Button>();
+    ArrayList<Textbox> tbox =new ArrayList<Textbox>();
+   
     boolean[] keys = new boolean[1024];
 
     public void keyPressed()
@@ -36,7 +33,6 @@ public class UI extends PApplet
         return keys[c] || keys [Character.toUpperCase(c)];
     }
     
-
     public void settings()
     {
         size(800, 700);
@@ -46,61 +42,71 @@ public class UI extends PApplet
 
     public void setup()
     {
-        b = new Button(this, 0, 50, width/4, 50, "Scan first Layer");
-        b1 = new Button(this, 0, 150, width/4, 50, "I am a button");
-        b2 = new Button(this, 0, 250, width/4, 50, "I am a button");
-        b3 = new Button(this, 0, 350, width/4, 50, "I am a button");
-        b4 = new Button(this, 0, 450, width/4, 50, "I am a button");
         mc = new MovingCircle(this, width / 2, height / 2, 50);
         r = new radar(this, width / 2, height / 2, 120);
         ship= new ShipDesign(this);
         hud = new Hud(this, width, height);
-        tbox = new Textbox(this, width/4, 50, "Help");
         cargo = new Cargo(this);
         move =new ship(this);
+        
+        float y = 50;
+        for(int i=0; i<5 ;i++)
+        {
+            buttons.add(new Button(this, 0, y, width/4, 50, "I am a button"));
+            tbox.add(new Textbox(this, width/4, y, "Help"));
+            y+=100;
+        }
     }
 
     public void draw()
     {
-        background(0);
-        
-        //ship.design();
-       
-        pushMatrix();
+        background(110);
+    
+        /*pushMatrix();
         //translate(20,20);
 
         //cargo.cargo1();
         
-        /*for(int i=0; i<10; i++)
+        for(int i=0; i<10; i++)
         {
             move.movement();
            
         }*/
+
         ship.l2Design1();
         ship.bDesign1();
         ship.l1Design1();
         
-        popMatrix();
+        //popMatrix();
 
         hud.render();
-        b.render();
-        b1.render();
+        
+        int i=0;
+        for (Button butt : buttons)
+        {
+            butt.render();
+            Textbox bx= tbox.get(i);
+            bx.render();
+            i++;
+        }
+        /*b1.render();
         b2.render();
         b3.render();
-        b4.render();
-        
-        tbox.render();
+        b4.render();*/
+      
+        //if(mouseX>0 && mouseX<b.getVar() && mouseY>50 && mouseY<100)
+        //if(pmouseX<b.getVar() )
 
-       /* mc.update();
+        /*mc.update();
         mc.render();
 
         r.update();
-        r.render();
+        r.render();*/
 
         if (checkKey(LEFT))
         {
             System.out.println("Left arrow key pressed");
-        }*/
+        }
     }
 }
 
