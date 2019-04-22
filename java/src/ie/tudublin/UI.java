@@ -76,8 +76,10 @@ public class UI extends PApplet
             move.movement();
            
         }*/
+        ship.l2Design1();
         ship.bDesign1();
-        ship.l1design1();
+        ship.l1Design1();
+        
         popMatrix();
 
         hud.render();

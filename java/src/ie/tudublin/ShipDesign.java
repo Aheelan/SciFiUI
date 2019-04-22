@@ -14,7 +14,7 @@ public class ShipDesign extends PApplet
     public float bwidth;
     public float bheight;
     public PShape baseShip, nose, body, rear;
-    public PShape layer1, subLayer1, wing1, wing2, thruster, window1, window2;
+    public PShape layer1, Layer2, wing1, wing2, thruster, window1, window2;
 
     public ShipDesign(UI ui)
     {
@@ -45,31 +45,15 @@ public class ShipDesign extends PApplet
         baseShip.addChild(body);
         baseShip.addChild(rear);
 
-        //ui.shape(subLayer1);
         ui.shape(baseShip);
     }
 
-    public void l1design1()
+    public void l1Design1()
     {
         layer1 = ui.createShape(GROUP);
-        subLayer1 = ui.createShape(GROUP);
 
         ui.fill(200,110,120);
         ui.stroke(200,110,120);
-
-        wing1 = ui.createShape();
-        ui.beginShape(TRIANGLE_STRIP);
-        ui.vertex(310, 270,200);
-        ui.vertex(450, 250,200);
-        ui.vertex(310, 170,200);
-        ui.endShape();
-        
-        wing2 = ui.createShape();
-        ui.beginShape(TRIANGLE_STRIP);
-        ui.vertex(310, 430);
-        ui.vertex(450, 450);
-        ui.vertex(310, 530);
-        ui.endShape();
        
         window1 = ui.createShape();
         ui.beginShape(TRIANGLE_STRIP);
@@ -90,8 +74,6 @@ public class ShipDesign extends PApplet
         ui.bezierVertex(400, 320, 400, 380, 300, 380);
         ui.endShape();
 
-        subLayer1.addChild(wing1);
-        subLayer1.addChild(wing2);
         layer1.addChild(window1);
         layer1.addChild(window2);
         layer1.addChild(thruster);
@@ -99,37 +81,31 @@ public class ShipDesign extends PApplet
         ui.shape(layer1);
     }
 
-    public void design1()
+    public void l2Design1()
     {
-        ui.fill(200,110,120);
-        ui.triangle(310, 270, 450, 250, 310, 170);
-        ui.triangle(310, 430, 450, 450, 310, 530);
-
-        ui.stroke(255, 255, 255);
-        ui.fill(255, 255, 255);
-        //ui.ellipse(350, 350, 150, 50); 
-
-        ui.bezier(350, 250, 200, 250, 200, 450, 350, 450);
-
-        ui.rect(350,250,100,200);
-
-        //ui.stroke(255, 102, 0);
-        //ui.line(350, 250, 500, 250);
-        //ui.line(500, 450, 350, 450);
-        ui.bezier(450, 250, 600, 280, 600, 420, 450, 450);
+        Layer2 = ui.createShape(GROUP);
 
         ui.fill(200,110,120);
-        //ui.stroke(255, 102, 0);
-        //ui.line(300, 320, 400, 320);
-        //ui.line(400, 380, 300, 380);
-        ui.bezier(300, 320, 400, 320, 400, 380, 300, 380);
-   
         ui.stroke(200,110,120);
-        //ui.line(450, 250, 450, 350);
-        //ui.line(450, 350, 570, 350);
-        ui.triangle(450, 250, 450, 350, 563, 350);
-        //ui.fill(100,210,120);
-        ui.bezier(450, 250, 500, 250, 565, 300, 563, 350);
+
+        wing1 = ui.createShape();
+        ui.beginShape(TRIANGLE_STRIP);
+        ui.vertex(310, 270);
+        ui.vertex(450, 250);
+        ui.vertex(310, 170);
+        ui.endShape();
+        
+        wing2 = ui.createShape();
+        ui.beginShape(TRIANGLE_STRIP);
+        ui.vertex(310, 430);
+        ui.vertex(450, 450);
+        ui.vertex(310, 530);
+        ui.endShape();
+
+        Layer2.addChild(wing1);
+        Layer2.addChild(wing2);
+
+        ui.shape(Layer2);
     }
 
     /*public void render()
