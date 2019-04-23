@@ -36,18 +36,12 @@ public class UI extends PApplet
 
     public void mousePressed()
     {
-        if(btop.bol==0)
-        {
-            btop.bol= 1;
-        }
-        else{
-            btop.bol= 0;
-        }
+        btop.rnOps();
     }
 
     public void settings()
     {
-        size(800, 700);
+        size(1000, 700);
         // Use fullscreen instead of size to make your interface fullscreen
         //fullScreen(); 
     }
@@ -89,7 +83,13 @@ public class UI extends PApplet
             move.movement();
            
         }*/
-
+        pushMatrix();
+        
+        if(btop.scount == 1)
+        {
+            translate(-700,-550);
+            scale((float)2.5);
+        }
         ship.l2Design1();
         ship.bDesign1();
 
@@ -101,7 +101,7 @@ public class UI extends PApplet
             ship.l1Design1();
         }
         
-        //popMatrix();
+        popMatrix();
 
         hud.render();
 
@@ -116,8 +116,8 @@ public class UI extends PApplet
                 bx.render();
 
                 if(mousePressed){
-                    btop.selOps(but.getOp());
-                    
+                    btop.selOps(buttons.get(i).getOp());
+
                     mousePressed();
                 }
             }

@@ -29,17 +29,17 @@ public class ShipDesign extends PApplet
 
         rear = ui.createShape();
         ui.beginShape();
-        ui. vertex(350, 250);
-        ui.bezierVertex(200, 250, 200, 450, 350, 450);
+        ui. vertex(450, 250);
+        ui.bezierVertex(300, 250, 300, 450, 450, 450);
         ui.endShape();
         
         nose = ui.createShape();
         ui.beginShape();
-        ui.vertex(450, 250);
-        ui.bezierVertex(600, 280, 600, 420, 450, 450);
+        ui.vertex(550, 250);
+        ui.bezierVertex(700, 280, 700, 420, 550, 450);
         ui.endShape();
         
-        body = ui.createShape(RECT,350,250,100,200);
+        body = ui.createShape(RECT,450,250,100,200);
 
         baseShip.addChild(nose);
         baseShip.addChild(body);
@@ -57,21 +57,21 @@ public class ShipDesign extends PApplet
        
         window1 = ui.createShape();
         ui.beginShape(TRIANGLE_STRIP);
-        ui.vertex(450, 250);
-        ui.vertex(450, 350);
-        ui.vertex(563, 350);
+        ui.vertex(550, 250);
+        ui.vertex(550, 350);
+        ui.vertex(663, 350);
         ui.endShape();
 
         window2 = ui.createShape();
         ui.beginShape();
-        ui.vertex(450, 250);
-        ui.bezierVertex(500, 250, 565, 300, 563, 350);
+        ui.vertex(550, 250);
+        ui.bezierVertex(600, 250, 665, 300, 663, 350);
         ui.endShape();
 
         thruster = ui.createShape();
         ui.beginShape();
-        ui.vertex(300, 320);
-        ui.bezierVertex(400, 320, 400, 380, 300, 380);
+        ui.vertex(400, 320);
+        ui.bezierVertex(500, 320, 500, 380, 400, 380);
         ui.endShape();
 
         layer1.addChild(window1);
@@ -90,16 +90,16 @@ public class ShipDesign extends PApplet
 
         wing1 = ui.createShape();
         ui.beginShape(TRIANGLE_STRIP);
-        ui.vertex(310, 270);
-        ui.vertex(450, 250);
-        ui.vertex(310, 170);
+        ui.vertex(410, 270);
+        ui.vertex(550, 250);
+        ui.vertex(410, 170);
         ui.endShape();
         
         wing2 = ui.createShape();
         ui.beginShape(TRIANGLE_STRIP);
-        ui.vertex(310, 430);
-        ui.vertex(450, 450);
-        ui.vertex(310, 530);
+        ui.vertex(410, 430);
+        ui.vertex(550, 450);
+        ui.vertex(410, 530);
         ui.endShape();
 
         Layer2.addChild(wing1);
