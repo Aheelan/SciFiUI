@@ -12,6 +12,7 @@ public class UI extends PApplet
     ShipDesign ship;
     ship move;
     Cargo cargo;
+    BtOps btop;
 
     ArrayList<Button> buttons =new ArrayList<Button>();
     ArrayList<Textbox> tbox =new ArrayList<Textbox>();
@@ -32,7 +33,18 @@ public class UI extends PApplet
     {
         return keys[c] || keys [Character.toUpperCase(c)];
     }
-    
+
+    public void mousePressed()
+    {
+        if(btop.bol==0)
+        {
+            btop.bol= 1;
+        }
+        else{
+            btop.bol= 0;
+        }
+    }
+
     public void settings()
     {
         size(800, 700);
@@ -48,13 +60,20 @@ public class UI extends PApplet
         hud = new Hud(this, width, height);
         cargo = new Cargo(this);
         move =new ship(this);
+        btop = new BtOps(this);
         
+        String[]bText={"x-ray","zoom in","zoom out","scan","pass","fail"};
+        String[]hText={"See inside ship","enlarge ship","reduce ship size","Detect ship contents","let ship through",
+                        "detain ship"};
+
+        int counter =0;
         float y = 50;
-        for(int i=0; i<5 ;i++)
+        for(int i=0; i<6 ;i++)
         {
-            buttons.add(new Button(this, 0, y, width/4, 50, "I am a button"));
-            tbox.add(new Textbox(this, width/4, y, "Help"));
+            buttons.add(new Button(this, 0, y, width/4, 50, bText[i],counter));
+            tbox.add(new Textbox(this, width/4, y, hText[i]));
             y+=100;
+            counter++;
         }
     }
 
@@ -64,8 +83,6 @@ public class UI extends PApplet
     
         /*pushMatrix();
         //translate(20,20);
-
-        //cargo.cargo1();
         
         for(int i=0; i<10; i++)
         {
@@ -75,19 +92,39 @@ public class UI extends PApplet
 
         ship.l2Design1();
         ship.bDesign1();
-        ship.l1Design1();
+
+        if(btop.bol==1)
+        {
+            cargo.cargo1();
+        }
+        else{
+            ship.l1Design1();
+        }
         
         //popMatrix();
 
         hud.render();
-        
+
         int i=0;
-        for (Button butt : buttons)
+        for (Button but : buttons)
         {
-            butt.render();
+            but.render();
             Textbox bx= tbox.get(i);
-            bx.render();
-            i++;
+
+            if(mouseX>0 && mouseX<but.getVar() && mouseY> bx.getVar(0) && mouseY< bx.getVar(50))
+            {
+                bx.render();
+
+                if(mousePressed){
+                    btop.selOps(but.getOp());
+                    
+                    mousePressed();
+                }
+            }
+            else
+            {
+                i++;
+            }
         }
         /*b1.render();
         b2.render();

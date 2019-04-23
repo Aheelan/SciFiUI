@@ -22,6 +22,12 @@ public class Textbox extends PApplet
        this.x1= x+20;
     }
 
+    public float getVar(int y1)
+    {
+        y1+=y;
+        return y1;
+    }
+
     public void render()
     {
         ui.fill(100,180,100,150);

@@ -10,8 +10,9 @@ public class Button
     private float width;
     private float height;
     private String text;
+    private int opVal;
 
-    public Button(UI ui, float x, float y, float width, float height, String text)
+    public Button(UI ui, float x, float y, float width, float height, String text, int opVal)
     {
         this.ui = ui;
         this.x = x;
@@ -19,11 +20,17 @@ public class Button
         this.width = width;
         this.height = height;
         this.text = text;
+        this.opVal=opVal;
     }
 
     public float getVar()
     {
         return width;
+    }
+
+    public int getOp()
+    {
+        return opVal;
     }
 
     public void render()
