@@ -8,10 +8,15 @@ import processing.core.PVector;
 public class Cargo extends PApplet
 {
     UI ui;
-    public float x= 400;
-    public float y= 300;
-    public float nx= 150;
-    public float ny= 100;
+    private float x= 400;
+    private float y= 300;
+    private float nx= 150;
+    private float ny= 100;
+    private float nny= ny/4;
+    private float nnx= nx/4;
+    private float spc;
+    private float space;
+
 
     public Cargo(UI ui)
     {
@@ -20,14 +25,20 @@ public class Cargo extends PApplet
 
     public void cargo1()
     {
+        spc= 0;
+        space= 0;
+
         ui.fill(10,100,20);
         ui.rect(x,y,nx,ny);
         
         ui.stroke(0);
-        ui.line(x+nx/3,y,x+nx/3,y+ny);
-        ui.line(x+(nx/3)*2,y,x+(nx/3)*2,y+ny);
+        for(int i=0;i<5;i++)
+        {
+            ui.line(x+spc,y,x+spc,y+ny);
+            ui.line(x,y+space,x+nx,y+space);
 
-        ui.line(x,y+ny/3,x+nx,y+ny/3);
-        ui.line(x,y+(ny/3)*2,x+nx,y+(ny/3)*2);
+            spc= spc+nnx;
+            space= space+nny;
+        }
     }
 }

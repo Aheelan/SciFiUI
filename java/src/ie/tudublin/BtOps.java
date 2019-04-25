@@ -20,13 +20,6 @@ public class BtOps
         this.opsVal=opsVal;
     }
 
-    public void mousePressed()
-    {
-        //rnOps();
-        ui.fill(0);
-        ui.rect(200,200,200,200);
-    }
-
     public void rnOps()
     {
         switch(opsVal) {
@@ -40,13 +33,13 @@ public class BtOps
             }
               break;
             case 1:
-            scount =1;
+              scount= 1;
               break;
             case 2:
-            scount =2;
+              scount=0;
               break;
             case 3:
-              
+              scount=10;
               break;
             case 4:
               

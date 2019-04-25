@@ -34,7 +34,7 @@ public class UI extends PApplet
         return keys[c] || keys [Character.toUpperCase(c)];
     }
 
-    public void mousePressed()
+    public void mouseReleased()
     {
         btop.rnOps();
     }
@@ -90,18 +90,32 @@ public class UI extends PApplet
             translate(-700,-550);
             scale((float)2.5);
         }
+        if(btop.scount == 10)
+        {
+            btop.bol=2;
+            translate(-2350,-1780);
+            scale((float)6);
+        }
+
         ship.l2Design1();
         ship.bDesign1();
 
         if(btop.bol==1)
         {
             cargo.cargo1();
+            popMatrix();
+        }
+        else if(btop.bol==2)
+        {
+            cargo.cargo1();
+            popMatrix();
+            r.update();
+            r.render();
         }
         else{
             ship.l1Design1();
+            popMatrix();
         }
-        
-        popMatrix();
 
         hud.render();
 
@@ -118,7 +132,7 @@ public class UI extends PApplet
                 if(mousePressed){
                     btop.selOps(buttons.get(i).getOp());
 
-                    mousePressed();
+                    mouseReleased();
                 }
             }
             else
@@ -126,19 +140,9 @@ public class UI extends PApplet
                 i++;
             }
         }
-        /*b1.render();
-        b2.render();
-        b3.render();
-        b4.render();*/
-      
-        //if(mouseX>0 && mouseX<b.getVar() && mouseY>50 && mouseY<100)
-        //if(pmouseX<b.getVar() )
 
-        /*mc.update();
-        mc.render();
-
-        r.update();
-        r.render();*/
+        //mc.update();
+        //mc.render();
 
         if (checkKey(LEFT))
         {
