@@ -2,50 +2,39 @@ package ie.tudublin;
 
 public class radar
 {
+    UI ui;
     private float circleX;
     private float circleY;
-    private float lineX;
-    private float lineY= 0;
     private float diameter;
     private float radius;
-    UI ui;
+    private float x;
+    private float y;   
+    private float theta; 
+    private float frequency =1;
+    private float timeDelta = 1.0f/60.0f;
+    private double TWO_PI = 6.2831855; 
 
     public radar(UI ui, float x, float y, float diameter)
     {
         this.ui = ui;
-        this.circleX = x;
-        this.circleY = y;
+        this.x = x;
+        this.y = y;
         this.diameter = diameter;
         this.radius = diameter / 2;
-        lineX = circleX+radius;
-        lineY = circleY;
     }
 
     public void render()
     {
         ui.stroke(255);
         ui.noFill();
-        ui.ellipse(circleX, circleY, diameter, diameter);
-        ui.line(circleX, circleY, lineX, lineY);
+        ui.ellipse(x, y, diameter, diameter);
+        circleX = x + (float) Math.sin(theta) * radius;
+        circleY = y - (float) Math.cos(theta) * radius;
+        ui.line(x, y, circleX, circleY);
     }
 
     public void update()
     {
-        if(lineX<=circleX-radius)
-        {
-            lineX++;
-        }
-        else
-        {
-            lineX--;
-        }
-        if(lineY<=circleY-radius)
-        {
-            lineY++;
-        }
-        else
-        {
-            lineY--;
-        }
+        theta += TWO_PI * timeDelta * frequency;
     }
 }
