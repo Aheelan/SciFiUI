@@ -55,7 +55,7 @@ public class UI extends PApplet
         hud = new Hud(this, width, height);
         cargo = new Cargo(this);
         btop = new BtOps(this);
-        mes= new Textbox(this, width/2, height/2, "Ship is clean");
+        mes= new Textbox(this, width/3, height/3, "Ship is clean");
         
         String[]bText={"x-ray","zoom in","zoom out","scan","pass","fail"};
         String[]hText={"See ship interior","enlarge image","minimise image","Detect ship contents","let ship through",
@@ -89,8 +89,6 @@ public class UI extends PApplet
 
         obj.str();
         obj.shoot();
-
-        mes.sMessage();
       
         pushMatrix();
         
@@ -124,10 +122,25 @@ public class UI extends PApplet
         }
         else if(btop.bol==2)
         {
-            cargo.cargo1();
-            popMatrix();
-            r.update();
-            r.render();
+            if(btop.bmb==1)
+            {
+                cargo.bomb();
+                popMatrix();
+                r.face();
+                r.timer();
+                r.time();
+                r.render();
+            }
+            else
+            {
+                cargo.cargo1();
+                popMatrix();
+                r.face();
+                r.update();
+                r.render();
+                btop.scan();
+                mes.sMessage();
+            }
         }
         else if(ship.ent==0)
         {

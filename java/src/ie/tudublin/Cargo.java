@@ -41,4 +41,28 @@ public class Cargo extends PApplet
             space= space+nny;
         }
     }
+
+    public void bomb()
+    {
+        spc= 20;
+        space= 20;
+
+        ui.fill(100,10,20);
+        ui.rect(x,y,nx,ny);
+
+        ui.stroke(0);
+        ui.fill(10);
+        ui.rect(x+10,y,10,ny);
+        ui.rect(x+nx-20,y,10,ny);
+        
+      /* ui.stroke(0);
+        for(int i=0;i<3;i++)
+        {
+            ui.line(x+spc,y,x+spc,y+ny);
+            ui.line(x,y+space,x+nx,y+space);
+
+            spc= spc+30;
+            space= space+nny;
+        }*/
+    }
 }

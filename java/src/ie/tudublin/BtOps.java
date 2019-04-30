@@ -3,10 +3,12 @@ package ie.tudublin;
 import java.util.*;
 import processing.core.PApplet;
 
-public class BtOps
+public class BtOps extends PApplet
 {
     UI ui;
     public int bol =0;
+    //public float bmb = random(2);
+    public float bmb = 1;
     public int scount =0;
     private int opsVal=7;
 
@@ -57,6 +59,5 @@ public class BtOps
     {
       for(int i=0;i<20;i++)
       {}
-      ui.println("2");
     }
 }
