@@ -7,14 +7,17 @@ import processing.core.*;
 public class ShipDesign extends PApplet
 {
     UI ui;
-    public float swidth;
-    public float sheight;
-    public float cwidth;
-    public float cheight;
-    public float bwidth;
-    public float bheight;
-    public PShape baseShip, nose, body, rear;
-    public PShape layer1, Layer2, wing1, wing2, thruster, window1, window2;
+    private float maxm= 450;
+    private float mx= 10;
+    private float my= 0;
+    private float rx= 0;
+    private float ry= 250;
+    private float bx= 0;
+    private float by= 250;
+    private float nx= 550;
+    private float ny= 250;
+    private PShape baseShip, nose, body, rear;
+    private PShape layer1, Layer2, wing1, wing2, thruster, window1, window2;
 
     public ShipDesign(UI ui)
     {
@@ -29,17 +32,17 @@ public class ShipDesign extends PApplet
 
         rear = ui.createShape();
         ui.beginShape();
-        ui. vertex(450, 250);
-        ui.bezierVertex(300, 250, 300, 450, 450, 450);
+        ui. vertex(rx, ry);
+        ui.bezierVertex(rx-150, ry, rx-150, rx, rx, rx);
         ui.endShape();
         
         nose = ui.createShape();
         ui.beginShape();
-        ui.vertex(550, 250);
-        ui.bezierVertex(700, 280, 700, 420, 550, 450);
+        ui.vertex(nx, ny);
+        ui.bezierVertex(nx+150, ny+30, nx+150, ny+170, nx, nx-100);
         ui.endShape();
         
-        body = ui.createShape(RECT,450,250,100,200);
+        body = ui.createShape(RECT,bx,by,100,200);
 
         baseShip.addChild(nose);
         baseShip.addChild(body);
@@ -108,14 +111,17 @@ public class ShipDesign extends PApplet
         ui.shape(Layer2);
     }
 
-    /*public void render()
+    public void move()
     {
-        ui.translate(50, 15);
-        ui.shape(baseShip);
-    }*/
-
-    public void movement()
-    {
-           
+        if(rx==maxm)
+        {}
+        else{
+            rx+=mx;
+            ry+=my;
+            bx+=mx;
+            by+=my;
+            nx+=mx;
+            ny+=my;
+        }
     }
 }

@@ -88,14 +88,6 @@ public class UI extends PApplet
         obj.str();
         obj.shoot();
       
-        /*pushMatrix();
-        //translate(20,20);
-        
-        for(int i=0; i<10; i++)
-        {
-            move.movement();
-           
-        }*/
         pushMatrix();
         
         if(btop.scount == 1)
@@ -110,6 +102,7 @@ public class UI extends PApplet
             scale((float)6);
         }
 
+        ship.move();
         ship.l2Design1();
         ship.bDesign1();
 
