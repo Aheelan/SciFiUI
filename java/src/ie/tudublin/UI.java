@@ -5,15 +5,15 @@ import processing.core.*;
 
 public class UI extends PApplet
 {
-    MovingCircle mc;
+    ObjDesign obj;
     radar r;
     Hud hud;
 
     ShipDesign ship;
-    ship move;
     Cargo cargo;
     BtOps btop;
 
+    ArrayList<ObjDesign> stars =new ArrayList<ObjDesign>();
     ArrayList<Button> buttons =new ArrayList<Button>();
     ArrayList<Textbox> tbox =new ArrayList<Textbox>();
    
@@ -48,16 +48,15 @@ public class UI extends PApplet
 
     public void setup()
     {
-        mc = new MovingCircle(this, width / 2, height / 2, 50);
+        obj = new ObjDesign(this,random(1000),random(700));
         r = new radar(this, width / 2, height / 2, 120);
         ship= new ShipDesign(this);
         hud = new Hud(this, width, height);
         cargo = new Cargo(this);
-        move =new ship(this);
         btop = new BtOps(this);
         
         String[]bText={"x-ray","zoom in","zoom out","scan","pass","fail"};
-        String[]hText={"See inside ship","enlarge ship","reduce ship size","Detect ship contents","let ship through",
+        String[]hText={"See ship interior","enlarge image","minimise image","Detect ship contents","let ship through",
                         "detain ship"};
 
         int counter =0;
@@ -69,12 +68,26 @@ public class UI extends PApplet
             y+=100;
             counter++;
         }
+
+        for(int i=0; i<400 ;i++)
+        {
+            stars.add(new ObjDesign(this, random(1000), random(700)));
+        }
     }
 
     public void draw()
     {
-        background(110);
-    
+        background(0);
+        fill(255);
+
+        for (ObjDesign star : stars)
+        {
+            star.str();
+        }
+
+        obj.str();
+        obj.shoot();
+      
         /*pushMatrix();
         //translate(20,20);
         

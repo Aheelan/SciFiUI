@@ -20,7 +20,7 @@ public class Hud
     {   
         //ui.noStroke();
         ui.fill(50, 150, 255, alpha);
-        ui.rect(width/4*3, 0, width, height);
+        //ui.rect(width/4*3, 0, width, height);
         ui.rect(0, 0, width/4, height);
     }
 }
