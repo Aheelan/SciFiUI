@@ -6,12 +6,13 @@ import processing.core.*;
 public class UI extends PApplet
 {
     ObjDesign obj;
-    radar r;
+    Radar r;
     Hud hud;
 
     ShipDesign ship;
     Cargo cargo;
     BtOps btop;
+    Textbox mes;
 
     ArrayList<ObjDesign> stars =new ArrayList<ObjDesign>();
     ArrayList<Button> buttons =new ArrayList<Button>();
@@ -49,11 +50,12 @@ public class UI extends PApplet
     public void setup()
     {
         obj = new ObjDesign(this,random(1000),random(700));
-        r = new radar(this, width / 2, height / 2, 120);
+        r = new Radar(this, width / 2, height / 2, 250);
         ship= new ShipDesign(this);
         hud = new Hud(this, width, height);
         cargo = new Cargo(this);
         btop = new BtOps(this);
+        mes= new Textbox(this, width/2, height/2, "Ship is clean");
         
         String[]bText={"x-ray","zoom in","zoom out","scan","pass","fail"};
         String[]hText={"See ship interior","enlarge image","minimise image","Detect ship contents","let ship through",
@@ -87,6 +89,8 @@ public class UI extends PApplet
 
         obj.str();
         obj.shoot();
+
+        mes.sMessage();
       
         pushMatrix();
         

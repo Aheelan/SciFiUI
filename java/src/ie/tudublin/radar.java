@@ -1,6 +1,6 @@
 package ie.tudublin;
 
-public class radar
+public class Radar
 {
     UI ui;
     private float circleX;
@@ -14,7 +14,7 @@ public class radar
     private float timeDelta = 1.0f/60.0f;
     private double TWO_PI = 6.2831855; 
 
-    public radar(UI ui, float x, float y, float diameter)
+    public Radar(UI ui, float x, float y, float diameter)
     {
         this.ui = ui;
         this.x = x;
@@ -26,11 +26,13 @@ public class radar
     public void render()
     {
         ui.stroke(255);
+        ui.strokeWeight(5);
         ui.noFill();
         ui.ellipse(x, y, diameter, diameter);
         circleX = x + (float) Math.sin(theta) * radius;
         circleY = y - (float) Math.cos(theta) * radius;
         ui.line(x, y, circleX, circleY);
+        ui.strokeWeight(1);
     }
 
     public void update()

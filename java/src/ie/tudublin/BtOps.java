@@ -52,4 +52,11 @@ public class BtOps
             default:
           }
     }
+
+    public void scan()
+    {
+      for(int i=0;i<20;i++)
+      {}
+      ui.println("2");
+    }
 }
