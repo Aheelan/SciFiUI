@@ -7,16 +7,23 @@ import processing.core.*;
 public class ShipDesign extends PApplet
 {
     UI ui;
-    private float maxm= 450;
-    private float mx= 10;
-    private float my= 0;
-    private float rx= 0;
+   // private float maxm= 450;
+   // private float mx= 5;
+   // private float my= 0;
+    private float rx= 450;
     private float ry= 250;
-    private float bx= 0;
+    private float bx= 450;
     private float by= 250;
     private float nx= 550;
     private float ny= 250;
     private PShape baseShip, nose, body, rear;
+
+    private float wx= 550;
+    private float wy= 250;
+    private float winx= 550;
+    private float winy= 250;
+    private float tx= 400;
+    private float ty= 320;
     private PShape layer1, Layer2, wing1, wing2, thruster, window1, window2;
 
     public ShipDesign(UI ui)
@@ -33,13 +40,13 @@ public class ShipDesign extends PApplet
         rear = ui.createShape();
         ui.beginShape();
         ui. vertex(rx, ry);
-        ui.bezierVertex(rx-150, ry, rx-150, rx, rx, rx);
+        ui.bezierVertex(rx-150, ry, rx-150, 450, rx, ry+200);
         ui.endShape();
         
         nose = ui.createShape();
         ui.beginShape();
         ui.vertex(nx, ny);
-        ui.bezierVertex(nx+150, ny+30, nx+150, ny+170, nx, nx-100);
+        ui.bezierVertex(nx+150, ny+30, nx+150, ny+170, nx, 450);
         ui.endShape();
         
         body = ui.createShape(RECT,bx,by,100,200);
@@ -60,21 +67,21 @@ public class ShipDesign extends PApplet
        
         window1 = ui.createShape();
         ui.beginShape(TRIANGLE_STRIP);
-        ui.vertex(550, 250);
-        ui.vertex(550, 350);
-        ui.vertex(663, 350);
+        ui.vertex(wx, wy);
+        ui.vertex(wx, wy+100);
+        ui.vertex(wx+113, wy+100);
         ui.endShape();
 
         window2 = ui.createShape();
         ui.beginShape();
-        ui.vertex(550, 250);
-        ui.bezierVertex(600, 250, 665, 300, 663, 350);
+        ui.vertex(winx, winy);
+        ui.bezierVertex(winx+50, winy, winx+115, winy+50, winx+113, 350);
         ui.endShape();
 
         thruster = ui.createShape();
         ui.beginShape();
-        ui.vertex(400, 320);
-        ui.bezierVertex(500, 320, 500, 380, 400, 380);
+        ui.vertex(tx, ty);
+        ui.bezierVertex(tx+100, ty, tx+100, ty+60, tx, 380);
         ui.endShape();
 
         layer1.addChild(window1);
@@ -93,16 +100,16 @@ public class ShipDesign extends PApplet
 
         wing1 = ui.createShape();
         ui.beginShape(TRIANGLE_STRIP);
-        ui.vertex(410, 270);
-        ui.vertex(550, 250);
-        ui.vertex(410, 170);
+        ui.vertex(wx-140, wy+20);
+        ui.vertex(wx, wy);
+        ui.vertex(wx-140, wy-80);
         ui.endShape();
         
         wing2 = ui.createShape();
         ui.beginShape(TRIANGLE_STRIP);
-        ui.vertex(410, 430);
-        ui.vertex(550, 450);
-        ui.vertex(410, 530);
+        ui.vertex(wx-140, wy+180);
+        ui.vertex(wx, wy+200);
+        ui.vertex(wx-140, wy+280);
         ui.endShape();
 
         Layer2.addChild(wing1);
@@ -113,7 +120,7 @@ public class ShipDesign extends PApplet
 
     public void move()
     {
-        if(rx==maxm)
+       /* if(rx==maxm)
         {}
         else{
             rx+=mx;
@@ -122,6 +129,13 @@ public class ShipDesign extends PApplet
             by+=my;
             nx+=mx;
             ny+=my;
-        }
+
+            wx+=mx;
+            wy+=my;
+            winx+=mx;
+            winy+=my;
+            tx+=mx;
+            ty+=my;
+        }*/
     }
 }

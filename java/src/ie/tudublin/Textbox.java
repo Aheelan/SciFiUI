@@ -30,13 +30,13 @@ public class Textbox extends PApplet
 
     public void render()
     {
-        ui.fill(100,180,100,150);
+        ui.fill(100,100,180,150);
         ui.noStroke();
 
         ui.triangle(x,y+25, x1,y, x1,y+50);
         ui.rect(x1,y,x,50);
 
-        ui.fill(250,110,180);
+        ui.fill(250);
 
         ui.textAlign(PApplet.CENTER, PApplet.CENTER);
         ui.text(text, x1 + x/2, y+25);
