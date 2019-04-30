@@ -26,6 +26,9 @@ public class ShipDesign extends PApplet
     private float ty= 320;
     private PShape layer1, Layer2, wing1, wing2, thruster, window1, window2;
 
+    public float ent= 0;
+    private float trax= -700;
+
     public ShipDesign(UI ui)
     {
        this. ui= ui;
@@ -119,23 +122,15 @@ public class ShipDesign extends PApplet
     }
 
     public void move()
-    {
-       /* if(rx==maxm)
-        {}
-        else{
-            rx+=mx;
-            ry+=my;
-            bx+=mx;
-            by+=my;
-            nx+=mx;
-            ny+=my;
-
-            wx+=mx;
-            wy+=my;
-            winx+=mx;
-            winy+=my;
-            tx+=mx;
-            ty+=my;
-        }*/
+    {   
+        if(ent==0)
+        {
+            ui.translate(trax,0);
+            trax+=20;
+        }
+        if(trax==0)
+        {
+            ent=1;
+        }
     }
 }

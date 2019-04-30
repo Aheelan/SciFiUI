@@ -102,9 +102,16 @@ public class UI extends PApplet
             scale((float)6);
         }
 
+        pushMatrix();
         ship.move();
         ship.l2Design1();
         ship.bDesign1();
+
+        if(ship.ent==0)
+        {
+            ship.l1Design1();
+        }
+        popMatrix();
 
         if(btop.bol==1)
         {
@@ -117,6 +124,10 @@ public class UI extends PApplet
             popMatrix();
             r.update();
             r.render();
+        }
+        else if(ship.ent==0)
+        {
+            popMatrix();
         }
         else{
             ship.l1Design1();

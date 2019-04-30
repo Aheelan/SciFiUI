@@ -34,9 +34,11 @@ public class BtOps
               break;
             case 1:
               scount= 1;
+              bol= 0;
               break;
             case 2:
               scount=0;
+              bol= 0;
               break;
             case 3:
               scount=10;
