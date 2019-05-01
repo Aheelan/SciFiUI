@@ -1,7 +1,5 @@
 package ie.tudublin;
 
-import java.util.ArrayList;
-
 import processing.core.*;
 
 public class ShipDesign extends PApplet

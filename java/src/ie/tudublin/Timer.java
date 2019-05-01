@@ -1,6 +1,6 @@
 package ie.tudublin;
 
-public class Timer extends Radar
+public class Timer extends RadarScan
 {
     private float cirx;
     private float ciry;

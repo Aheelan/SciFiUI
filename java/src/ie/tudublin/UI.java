@@ -6,7 +6,7 @@ import processing.core.*;
 public class UI extends PApplet
 {
     ObjDesign obj;
-    Radar r;
+    RadarScan r;
     Timer t;
     Hud hud;
 
@@ -54,7 +54,7 @@ public class UI extends PApplet
     public void setup()
     {
         obj = new ObjDesign(this,random(1000),random(700));
-        r = new Radar(this, width / 2, height / 2, 250);
+        r = new RadarScan(this, width / 2, height / 2, 250);
         t = new Timer(this, width / 2, height / 2, 250);
         ship= new ShipDesign(this);
         hud = new Hud(this, width, height);
@@ -97,15 +97,7 @@ public class UI extends PApplet
 
         obj.str();
         obj.shoot();
-      
-        if (btop.verdict==10)
-        {
-            for(int i=0;i<10000;i++)
-            {
-                fill(240,220,4);
-                success.sMessage();
-            }
-        }
+
         if (btop.verdict==1)
         {
             for(int i=0;i<10000;i++)
@@ -114,13 +106,24 @@ public class UI extends PApplet
                 failure.sMessage();
             }
         }
-        if (btop.verdict==1||btop.verdict==10)
+        if (btop.verdict==10)
         {
+            for(int i=0;i<12000;i++)
+            {
+                fill(240,220,4);
+                //fill(200,100,200);
+                success.sMessage();
+            }
+        }
+        
+        if (btop.verdict!= 0)
+        {
+            btop.verdict= 0;
             btop.scount = 0;
             btop.bol= 0;
             ship.ent= 10;
             btop.bmb= random(11);
-            btop.verdict= 0;
+            btop.req= 0;
         }
 
         pushMatrix();

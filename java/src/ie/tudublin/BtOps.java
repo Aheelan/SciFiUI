@@ -1,6 +1,5 @@
 package ie.tudublin;
 
-import java.util.*;
 import processing.core.PApplet;
 
 public class BtOps extends PApplet
@@ -51,7 +50,7 @@ public class BtOps extends PApplet
               {
                 verdict=1;
               }
-              else{
+              else if(req==1){
                 verdict=10;
               }
               break;
