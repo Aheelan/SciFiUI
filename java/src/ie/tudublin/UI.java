@@ -7,6 +7,7 @@ public class UI extends PApplet
 {
     ObjDesign obj;
     Radar r;
+    Timer t;
     Hud hud;
 
     ShipDesign ship;
@@ -54,6 +55,7 @@ public class UI extends PApplet
     {
         obj = new ObjDesign(this,random(1000),random(700));
         r = new Radar(this, width / 2, height / 2, 250);
+        t = new Timer(this, width / 2, height / 2, 250);
         ship= new ShipDesign(this);
         hud = new Hud(this, width, height);
         cargo = new Cargo(this);
@@ -64,8 +66,8 @@ public class UI extends PApplet
         failure= new Textbox(this, width/3, height/3, "You Failed to Evaluate Correctly");
         
         String[]bText={"x-ray","zoom in","zoom out","scan","pass","fail"};
-        String[]hText={"See ship interior","enlarge image","minimise image","Detect ship contents","let ship through",
-                        "detain ship"};
+        String[]hText={"See Ship Interior","Enlarge image","Set Image to Default Size","Detect Ship Contents",
+                        "Let Ship Through", "Detain Ship"};
 
         int counter =0;
         float y = 50;
@@ -116,8 +118,7 @@ public class UI extends PApplet
         {
             btop.scount = 0;
             btop.bol= 0;
-            ship.ent= 0;
-            ship.trax= -700;
+            ship.ent= 10;
             btop.bmb= random(11);
             btop.verdict= 0;
         }
@@ -141,7 +142,7 @@ public class UI extends PApplet
         ship.l2Design1();
         ship.bDesign1();
 
-        if(ship.ent==0)
+        if(ship.ent!=1)
         {
             ship.l1Design1();
         }
@@ -155,15 +156,15 @@ public class UI extends PApplet
         else if(btop.bol==2)
         {
             btop.req=1;
-            
+
             if(btop.bmb<6)
             {
                 cargo.bomb();
                 popMatrix();
-                r.face();
-                r.timer();
-                r.time();
-                r.render();
+                t.face();
+                t.time();
+                t.update();
+                t.render();
 
                 fill(240,220,4);
                 mbad.sMessage();
@@ -182,7 +183,7 @@ public class UI extends PApplet
                 mes.sMessage();
             }
         }
-        else if(ship.ent==0)
+        else if(ship.ent!=1)
         {
             popMatrix();
         }
