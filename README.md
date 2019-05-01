@@ -1,18 +1,55 @@
 # SciFi UI Project
 
-Name:
+Name: Aaron Heelan
 
-Student Number: 
-
-Fork this repository and use it a starter project for your assignment
+Student Number: C17317821
 
 # Description of the assignment
+My assignment was created to be a security checkpoint for some kind of spacestation, 
+that would check what a ship was carrying before allowing it into the spacestation.
 
 # Instructions
+The UI consists of Six buttons that function once clicked
+1. XRay: shows ships cargo
+1. Zoom in: makes the ship bigger
+1. Zoom out: returns the ship to normal size
+1. Scan: Identifies the ship's cargo type
+1. pass: clears the ship for entry (ship leaves screen)
+1. fail: imprisons ship (ship leaves screen)
+Buttons 1 to 4 can be used limitlessly
+Buttons 5 or 6 create a new ship
 
 # How it works
 
+
 # What I am most proud of in the assignment
+I am most proud of my tip boxs that only appear when the user hovers over a button.
+This uses two synced object arraylists and an if statement using mouse coordinates.
+
+```Java
+int i=0;
+	for (Button but : buttons)
+        {
+            but.render();
+            Textbox bx= tbox.get(i);
+
+            if(mouseX>0 && mouseX<but.getVar() && mouseY> bx.getVar(0) && mouseY< bx.getVar(50))
+            {
+                bx.render();
+
+                if(mousePressed){
+                    btop.selOps(buttons.get(i).getOp());
+                    mouseReleased();
+                }
+            }
+            else
+            {
+                i++;
+            }
+        }
+```
+
+[![YouTube]https://www.youtube.com/embed/xxCIr1BEeqM]
 
 # Markdown Tutorial
 
