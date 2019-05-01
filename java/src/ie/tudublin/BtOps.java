@@ -8,6 +8,7 @@ public class BtOps extends PApplet
     UI ui;
     public int bol =0;
     public float bmb = random(11);
+    public float req =0;
     public float verdict =0;
     public int scount =0;
     private int opsVal=7;
@@ -46,7 +47,7 @@ public class BtOps extends PApplet
               scount=10;
               break;
             case 4:
-              if (bmb<6)
+              if (bmb<6||req==0)
               {
                 verdict=1;
               }
@@ -55,7 +56,7 @@ public class BtOps extends PApplet
               }
               break;
             case 5:
-            if (bmb<6)
+            if (bmb<6 && req==1)
             {
               verdict=10;
             }

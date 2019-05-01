@@ -154,6 +154,8 @@ public class UI extends PApplet
         }
         else if(btop.bol==2)
         {
+            btop.req=1;
+            
             if(btop.bmb<6)
             {
                 cargo.bomb();
