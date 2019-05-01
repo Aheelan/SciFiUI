@@ -27,7 +27,7 @@ public class ShipDesign extends PApplet
     private PShape layer1, Layer2, wing1, wing2, thruster, window1, window2;
 
     public float ent= 0;
-    private float trax= -700;
+    public float trax= -700;
 
     public ShipDesign(UI ui)
     {

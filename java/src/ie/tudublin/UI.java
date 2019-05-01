@@ -13,6 +13,9 @@ public class UI extends PApplet
     Cargo cargo;
     BtOps btop;
     Textbox mes;
+    Textbox mbad;
+    Textbox success;
+    Textbox failure;
 
     ArrayList<ObjDesign> stars =new ArrayList<ObjDesign>();
     ArrayList<Button> buttons =new ArrayList<Button>();
@@ -55,7 +58,10 @@ public class UI extends PApplet
         hud = new Hud(this, width, height);
         cargo = new Cargo(this);
         btop = new BtOps(this);
-        mes= new Textbox(this, width/3, height/3, "Ship is clean");
+        mes= new Textbox(this, width/3, height/3, "Ship is Clean");
+        mbad= new Textbox(this, width/3, height/3, "Contraband Found");
+        success= new Textbox(this, width/3, height/3, "Success");
+        failure= new Textbox(this, width/3, height/3, "You Failed to Evaluate Correctly");
         
         String[]bText={"x-ray","zoom in","zoom out","scan","pass","fail"};
         String[]hText={"See ship interior","enlarge image","minimise image","Detect ship contents","let ship through",
@@ -90,6 +96,32 @@ public class UI extends PApplet
         obj.str();
         obj.shoot();
       
+        if (btop.verdict==10)
+        {
+            for(int i=0;i<10000;i++)
+            {
+                fill(240,220,4);
+                success.sMessage();
+            }
+        }
+        if (btop.verdict==1)
+        {
+            for(int i=0;i<10000;i++)
+            {
+                fill(240,220,4);
+                failure.sMessage();
+            }
+        }
+        if (btop.verdict==1||btop.verdict==10)
+        {
+            btop.scount = 0;
+            btop.bol= 0;
+            ship.ent= 0;
+            ship.trax= -700;
+            btop.bmb= random(11);
+            btop.verdict= 0;
+        }
+
         pushMatrix();
         
         if(btop.scount == 1)
@@ -122,7 +154,7 @@ public class UI extends PApplet
         }
         else if(btop.bol==2)
         {
-            if(btop.bmb==1)
+            if(btop.bmb<6)
             {
                 cargo.bomb();
                 popMatrix();
@@ -130,15 +162,21 @@ public class UI extends PApplet
                 r.timer();
                 r.time();
                 r.render();
+
+                fill(240,220,4);
+                mbad.sMessage();
             }
             else
             {
                 cargo.cargo1();
                 popMatrix();
+                fill(240);
                 r.face();
                 r.update();
                 r.render();
                 btop.scan();
+
+                fill(200,100,200);
                 mes.sMessage();
             }
         }
